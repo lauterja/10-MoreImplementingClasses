@@ -403,7 +403,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -411,8 +411,11 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # ---------------------------------------------------------------------
-        self.Line = Line.slope((self.end.y - self.start.y)/(self.end.x - self.start.x))
-        return(self.Line)
+        if self.start.x - self.end.x == 0:
+            return(math.inf)
+        else:
+            slope = (self.end.y - self.start.y) / (self.end.x - self.start.x)
+            return slope
     def length(self):
         """
         What comes in:
@@ -437,7 +440,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -445,7 +448,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # ---------------------------------------------------------------------
-
+        distance = ((self.end.y - self.start.y) ** 2 + self.end.x - self.start.x) ** 2) ** (1/2)
+        return distance
     def get_number_of_clones(self):
         """
         What comes in:
